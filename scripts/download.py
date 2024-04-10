@@ -107,7 +107,6 @@ if __name__ == "__main__":
     zipped_episodes = [(json.load(open(file)), file[12:-5])
                        for file in all_episodes]
 
-    breakpoint()
     with mp.Pool(mp.cpu_count()) as p:
         p.starmap(download_video, zip(zipped_episodes,
                   repeat(output_dir), repeat(verbose)))
